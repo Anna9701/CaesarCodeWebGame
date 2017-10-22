@@ -1,10 +1,10 @@
-package com.annawyrwal.caesarcodegame.Wikipedia;
+package com.annawyrwal.caesarcodegame.wikipedia;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static com.annawyrwal.caesarcodegame.Wikipedia.Wiki.createInstance;
+import static com.annawyrwal.caesarcodegame.wikipedia.Wiki.createInstance;
 
 public class WikiQuotes {
     private ArrayList<String> authors;
@@ -49,15 +49,15 @@ public class WikiQuotes {
         } while (quotes.size() == 0);
 
         if (quotes.size() > 2)
-            return quotes.get(random.nextInt(quotes.size() - 1)).replaceAll("[^\\p{IsAlphabetic}\\s^\\p{IsDigit}\\s]", "");
-        return quotes.get(0).replaceAll("[^\\p{IsAlphabetic}\\s^\\p{IsDigit}\\s]", "");
+            return quotes.get(random.nextInt(quotes.size() - 1));
+        return quotes.get(0);
     }
 
     ArrayList<String> getProperLengthQuotes(int maxLength, ArrayList<String> quotes) {
         ArrayList<String> resultList = new ArrayList<>();
         for (String s : quotes)
             if (s.length() <= maxLength)
-                resultList.add(s);
+                resultList.add(s.replaceAll("[^\\p{IsAlphabetic}\\s^\\p{IsDigit}\\s]", "").toLowerCase());
 
         return resultList;
     }

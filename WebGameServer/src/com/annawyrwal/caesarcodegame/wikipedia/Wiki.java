@@ -18,7 +18,7 @@
  *  Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-package com.annawyrwal.caesarcodegame.Wikipedia;
+package com.annawyrwal.caesarcodegame.wikipedia;
 
 import java.io.*;
 import java.net.*;
@@ -43,7 +43,7 @@ import javax.security.auth.login.*;
  *  <p>
  *  Extended documentation is available
  *  <a href="//github.com/MER-C/wiki-java/wiki/Extended-documentation">here</a>.
- *  All wikilinks are relative to the English Wikipedia and all timestamps are in
+ *  All wikilinks are relative to the English wikipedia and all timestamps are in
  *  your wiki's time zone.
  *  </p>
  *  Please file bug reports <a href="//en.wikipedia.org/wiki/User_talk:MER-C">here</a>
@@ -468,7 +468,7 @@ public class Wiki implements Serializable
     // CONSTRUCTORS AND CONFIGURATION
 
     /**
-     *  Creates a new connection to the English Wikipedia via HTTPS.
+     *  Creates a new connection to the English wikipedia via HTTPS.
      *  @since 0.02
      *  @deprecated use Wiki#createInstance instead
      */
@@ -1207,7 +1207,7 @@ public class Wiki implements Serializable
     /**
      *  Determines the intersection of two lists of pages a and b.
      *  Such lists might be generated from the various list methods below.
-     *  Examples from the English Wikipedia:
+     *  Examples from the English wikipedia:
      *
      *  <pre>
      *  // find all orphaned and unwikified articles
@@ -1238,7 +1238,7 @@ public class Wiki implements Serializable
     /**
      *  Determines the list of articles that are in a but not b, i.e. a \ b.
      *  This is not the same as b \ a. Such lists might be generated from the
-     *  various lists below. Some examples from the English Wikipedia:
+     *  various lists below. Some examples from the English wikipedia:
      *
      *  <pre>
      *  // find all Martian crater articles that do not have an infobox
@@ -1473,7 +1473,7 @@ public class Wiki implements Serializable
      *  Returns the namespace a page is in. No need to override this to
      *  add custom namespaces, though you may want to define static fields e.g.
      *  <tt>public static final int PORTAL_NAMESPACE = 100;</tt> for the Portal
-     *  namespace on the English Wikipedia.
+     *  namespace on the English wikipedia.
      *
      *  @param title any valid page name
      *  @return an integer array containing the namespace of <tt>title</tt>
@@ -1732,7 +1732,7 @@ public class Wiki implements Serializable
      *  HTML. You should test any use of this method on-wiki through the text
      *  <tt>{{Special:Specialpage}}</tt>. Use <tt>getImage()</tt> to fetch an
      *  image. Be aware of any transclusion limits, as outlined at
-     *  [[Wikipedia:Template limits]].
+     *  [[wikipedia:Template limits]].
      *
      *  @param title the title of the page
      *  @return the rendered contents of that page
@@ -2546,7 +2546,7 @@ public class Wiki implements Serializable
 
     /**
      *  Gets the entire revision history of a page. Be careful when using
-     *  this method as some pages (such as [[Wikipedia:Administrators'
+     *  this method as some pages (such as [[wikipedia:Administrators'
      *  noticeboard/Incidents]] have ~10^6 revisions.
      *
      *  @param title a page
@@ -3206,7 +3206,7 @@ public class Wiki implements Serializable
      *  @param hidereason hide the edit summary or the reason for an action
      *  @param hideuser hide who made the revision/action
      *  @param reason the reason why the (un)deletion was performed
-     *  @param suppress [[Wikipedia:Oversight]] the information in question
+     *  @param suppress [[wikipedia:Oversight]] the information in question
      *  (ignored if we cannot <tt>suppressrevision</tt>, null = status quo).
      *  @param revisions the list of revisions to (un)delete
      *  @throws IOException if a network error occurs
@@ -4412,7 +4412,7 @@ public class Wiki implements Serializable
      *  target user must have email contact enabled. Messages are sent in plain
      *  text (no wiki markup or HTML).
      *
-     *  @param user a Wikipedia user with email enabled
+     *  @param user a wikipedia user with email enabled
      *  @param subject the subject of the message
      *  @param message the plain text message
      *  @param emailme whether to send a copy of the message to your email address
