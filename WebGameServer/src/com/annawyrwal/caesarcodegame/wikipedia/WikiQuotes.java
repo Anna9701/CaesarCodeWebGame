@@ -80,7 +80,7 @@ public class WikiQuotes {
         ArrayList<String> quotes = new ArrayList<>();
         String[] lines = text.split("\\R");
         for (String s : lines) {
-            if (s.startsWith("*"))
+            if (s.startsWith("*") && !s.contains("(łac.)") && !s.contains("(gr.)") && !s.contains("niem."))
                 if(!s.contains("Zobacz też: [[") && !s.startsWith("** Autor: ") && !s.startsWith("** Opis:") && !s.startsWith("** Źródło: ") && !s.startsWith("[[") && !s.startsWith("** Postać:"))
                     quotesWithStars.add(s);
         }

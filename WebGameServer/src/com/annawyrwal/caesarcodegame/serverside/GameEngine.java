@@ -24,6 +24,7 @@ public class GameEngine {
         currentRound = 0;
     }
 
+
     public void addUserToRanking(Listener.Client client) {
         ranking.addClientToRanking(client);
     }
@@ -65,13 +66,13 @@ public class GameEngine {
 
     private void initializeLengths() {
         for (int i = 0; i < numberOfRounds; i++)
-            lengths.add((i+1) * 10);
+            lengths.add((i+1) * 15);
     }
 
     private void initializeEnigmas() {
         for (int i = 0; i < numberOfRounds; i++) {
-            String text = wikiQuotes.getRandomQuote(lengths.get(i));
-            enigmas.add(new Enigma(text));
+            final int j = i;
+            new Thread( () -> enigmas.add(new Enigma(wikiQuotes.getRandomQuote(lengths.get(j))))).run();
         }
     }
 

@@ -16,14 +16,25 @@ public class Listener extends Thread {
     private ServerSocket serverSocket;
     private ArrayList<Client> clients;
     private static GameEngine gameEngine;
-    private int numberOfRounds = 3; // ewentualnie przekazywanie przez parametr wejściowy??
+    private int numberOfRounds;
+    private final int DEFAULT_NUMBER_OF_ROUNDS = 8;
 
-    public Listener(int number) {
+    public Listener(int portNumber) {
+        numberOfRounds = DEFAULT_NUMBER_OF_ROUNDS;
+        initialize(portNumber);
+    }
+
+    public Listener(int portNumber, int numberOfRounds) {
+        this.numberOfRounds = numberOfRounds;
+        initialize(portNumber);
+    }
+
+    private void initialize(int portNumber) {
         clients = new ArrayList<>();
         gameEngine = new GameEngine(numberOfRounds);
-        portNumber = number;
+        this.portNumber = portNumber;
         try {
-            serverSocket = new ServerSocket(portNumber);
+            serverSocket = new ServerSocket(this.portNumber);
         } catch (IOException e) {
             e.printStackTrace();
         }

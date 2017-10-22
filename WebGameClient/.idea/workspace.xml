@@ -2,23 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fcdd4ff-9514-4e1a-9113-5591dc02fd8d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebGameServer/src/com/annawyrwal/caesarcodegame/caesarcode/CaesarCipher.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebGameServer/src/com/annawyrwal/caesarcodegame/caesarcode/Enigma.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebGameServer/src/com/annawyrwal/caesarcodegame/serverside/GameEngine.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/Main.class" afterPath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/caesarcode/Enigma.class" afterPath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/caesarcode/Enigma.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/serverside/GameEngine.class" afterPath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/serverside/GameEngine.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/serverside/Listener$Client$1.class" afterPath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/serverside/Listener$Client$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/serverside/Listener$Client.class" afterPath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/serverside/Listener$Client.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/serverside/Listener.class" afterPath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/serverside/Listener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/serverside/Ranking.class" afterPath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/serverside/Ranking.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/serverside/RequestHandler.class" afterPath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/serverside/RequestHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/serverside/WrapInt.class" afterPath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/serverside/WrapInt.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/wikipedia/WikiQuotes.class" afterPath="$PROJECT_DIR$/../WebGameServer/out/production/WebGameServer/com/annawyrwal/caesarcodegame/wikipedia/WikiQuotes.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebGameServer/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../WebGameServer/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebGameServer/src/com/annawyrwal/caesarcodegame/Main.java" afterPath="$PROJECT_DIR$/../WebGameServer/src/com/annawyrwal/caesarcodegame/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebGameServer/src/com/annawyrwal/caesarcodegame/serverside/GameEngine.java" afterPath="$PROJECT_DIR$/../WebGameServer/src/com/annawyrwal/caesarcodegame/serverside/GameEngine.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebGameServer/src/com/annawyrwal/caesarcodegame/serverside/Listener.java" afterPath="$PROJECT_DIR$/../WebGameServer/src/com/annawyrwal/caesarcodegame/serverside/Listener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebGameServer/src/com/annawyrwal/caesarcodegame/serverside/Ranking.java" afterPath="$PROJECT_DIR$/../WebGameServer/src/com/annawyrwal/caesarcodegame/serverside/Ranking.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebGameServer/src/com/annawyrwal/caesarcodegame/serverside/RequestHandler.java" afterPath="$PROJECT_DIR$/../WebGameServer/src/com/annawyrwal/caesarcodegame/serverside/RequestHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebGameServer/src/com/annawyrwal/caesarcodegame/wikipedia/WikiQuotes.java" afterPath="$PROJECT_DIR$/../WebGameServer/src/com/annawyrwal/caesarcodegame/wikipedia/WikiQuotes.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -70,7 +65,7 @@
       <file leaf-file-name="ClientUserInputReader.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/annawyrwal/ClientUserInputReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
+            <state relative-caret-position="340">
               <caret line="20" column="72" lean-forward="true" selection-start-line="20" selection-start-column="72" selection-end-line="20" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -294,15 +289,16 @@
       <workItem from="1508156179888" duration="2596000" />
       <workItem from="1508671126898" duration="36000" />
       <workItem from="1508671377550" duration="129000" />
-      <workItem from="1508671544678" duration="4930000" />
+      <workItem from="1508671544678" duration="6837000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7691000" />
+    <option name="totallyTimeSpent" value="9598000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -764,7 +760,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/annawyrwal/ClientUserInputReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
+        <state relative-caret-position="340">
           <caret line="20" column="72" lean-forward="true" selection-start-line="20" selection-start-column="72" selection-end-line="20" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
