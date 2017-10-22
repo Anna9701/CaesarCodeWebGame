@@ -39,7 +39,7 @@ public class RequestHandler extends Thread {
     private void menuOptionHandler (int option) {
         switch (option) {
             case 1:
-                recieveResponse();
+                receiveResponse();
                 break;
             case 2:
                 showRanking();
@@ -52,8 +52,13 @@ public class RequestHandler extends Thread {
         client.sendMessage('\n' + Listener.getStartMenuMessage());
     }
 
-    private void recieveResponse() {
-
+    private void receiveResponse() {
+        String response = askForResponse("Decrypted text is:");
+        if (client.checkEnigma(response)) {
+            client.sendMessage("Bravo! This is correct answer!");
+        } else {
+            client.sendMessage("Incorrect answer! Try again!");
+        }
     }
 
     private void showRanking() {

@@ -57,7 +57,7 @@ public class WikiQuotes {
         ArrayList<String> resultList = new ArrayList<>();
         for (String s : quotes)
             if (s.length() <= maxLength)
-                resultList.add(s.replaceAll("[^\\p{IsAlphabetic}\\s^\\p{IsDigit}\\s]", "").toLowerCase());
+                resultList.add(s.replaceAll("[^\\p{IsAlphabetic}^\\p{IsDigit}]", "").toLowerCase());
 
         return resultList;
     }

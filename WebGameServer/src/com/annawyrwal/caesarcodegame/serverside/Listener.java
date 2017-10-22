@@ -1,5 +1,7 @@
 package com.annawyrwal.caesarcodegame.serverside;
 
+import com.annawyrwal.caesarcodegame.caesarcode.Enigma;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,11 +15,12 @@ public class Listener extends Thread {
     private int portNumber;
     private ServerSocket serverSocket;
     private ArrayList<Client> clients;
-    private Ranking ranking;
+    private static GameEngine gameEngine;
+    private int numberOfRounds = 3; // ewentualnie przekazywanie przez parametr wejściowy??
 
     public Listener(int number) {
         clients = new ArrayList<>();
-        ranking = new Ranking();
+        gameEngine = new GameEngine(numberOfRounds);
         portNumber = number;
         try {
             serverSocket = new ServerSocket(portNumber);
@@ -27,10 +30,16 @@ public class Listener extends Thread {
     }
 
     public static String getStartMenuMessage() {
-        String text = "Hello on our Caesar Code Game!\n" +
+        Enigma enigma = gameEngine.getEnigma();
+
+        String text = "Now is " + gameEngine.getCurrentRound() + " round from " + gameEngine.getNumberOfRounds() + " rounds.\n" +
+                "Please, remember, that text has no spaces \n" +
+                "Text to decrypt (Text is in polish language): \n" +
+                enigma.getCryptedText() + "\n" +
+                enigma.getDecryptedText() + enigma.getKey() + "\n\n" + /*************************************** Do wywalenia **********************************************************/
                 "1. Send answer \n" +
                 "2. View ranking \n" +
-                "0. Exit";
+                "0. Exit \n";
         return text;
     }
 
@@ -42,7 +51,7 @@ public class Listener extends Thread {
                 Client client = new Client(socket);
                 client.sendMessage(getStartMenuMessage());
                 clients.add(client);
-                ranking.addClientToRanking(client);
+                gameEngine.addUserToRanking(client);
                 client.start();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -84,12 +93,26 @@ public class Listener extends Thread {
             }
         }
 
+        public boolean checkEnigma(String text) {
+            if (gameEngine.getEnigma().isValid(text)) {
+                sendToAllClients(getClientName() + " found valid answer!");
+                sendToAllClients("Decrypted text was: " + gameEngine.getEnigma().getDecryptedText());
+                gameEngine.addPointsForCorrectAnswer(this);
+                if(!gameEngine.nextRound()) {
+                    endOfGame();
+                }
+                sendToAllClients(getStartMenuMessage());
+                return true;
+            }
+            return false;
+        }
+
         public void run() {
             try {
                 Client currentClient = this;
                 Thread handle = new Thread () {
                     public void run() {
-                        new RequestHandler(currentClient, messages, ranking).start();
+                        new RequestHandler(currentClient, messages, gameEngine.getRanking()).start();
                     }
                 };
                 handle.start();
@@ -108,6 +131,12 @@ public class Listener extends Thread {
                 }
                 return;
             }
+        }
+
+        private void endOfGame() {
+            sendToAllClients(gameEngine.getRanking().getWinner());
+            gameEngine.resetGame();
+            gameEngine.getRanking().resetRanking();
         }
 
         public void sendMessage(String msg) {

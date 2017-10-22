@@ -3,12 +3,36 @@ package com.annawyrwal.caesarcodegame.serverside;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Ranking {
     Map<Listener.Client, WrapInt> clients;
 
     public Ranking() {
         clients = new HashMap<>();
+    }
+
+    public String getWinner() {
+        int index = 0;
+
+        ArrayList<WrapInt> wrapInts = new ArrayList<>();
+        for (WrapInt i : clients.values())
+            wrapInts.add(i);
+
+        WrapInt max = wrapInts.get(0);
+
+        for (int i = 1; i < wrapInts.size(); i++) {
+            if(wrapInts.get(i).value > max.value) {
+                index = i;
+                max = wrapInts.get(i);
+            }
+        }
+
+        ArrayList<Listener.Client> values = new ArrayList<>();
+        for (Listener.Client client : clients.keySet())
+            values.add(client);
+
+        return "Winner is " + values.get(index).getClientName() + " with " + max.value + "pkt. Congratulation!";
     }
 
     public void addClientToRanking(Listener.Client client) {

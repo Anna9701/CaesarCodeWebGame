@@ -1,15 +1,15 @@
 package com.annawyrwal.caesarcodegame;
 
-import com.annawyrwal.caesarcodegame.wikipedia.WikiQuotes;
 import com.annawyrwal.caesarcodegame.serverside.Listener;
+
+/*****************
+ * @Author Anna Wyrwał
+ */
 
 public class Main {
 
     public static void main(String[] args) {
         initializeServer(args);
-
-        WikiQuotes wikiQuotes = new WikiQuotes();
-        System.out.println(wikiQuotes.getRandomQuote(40));
     }
 
     private static void initializeServer(String[] args) {
