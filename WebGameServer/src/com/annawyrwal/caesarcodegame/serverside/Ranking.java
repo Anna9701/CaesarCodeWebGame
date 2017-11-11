@@ -39,9 +39,13 @@ public class Ranking {
         clients.put(client, new WrapInt());
     }
 
-    public void addPointToCliet (Listener.Client client, int points) {
+    public void addPointToClient(Listener.Client client, int points) {
         WrapInt p = clients.get(client);
         p.value += points;
+    }
+
+    public Map<Listener.Client, WrapInt> getClients() {
+        return clients;
     }
 
     public String getRanking() {

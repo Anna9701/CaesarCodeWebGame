@@ -53,7 +53,7 @@ public class WikiQuotes {
         return quotes.get(0);
     }
 
-    ArrayList<String> getProperLengthQuotes(int maxLength, ArrayList<String> quotes) {
+    private ArrayList<String> getProperLengthQuotes(int maxLength, ArrayList<String> quotes) {
         ArrayList<String> resultList = new ArrayList<>();
         for (String s : quotes)
             if (s.length() <= maxLength)

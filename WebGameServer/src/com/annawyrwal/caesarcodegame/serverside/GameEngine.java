@@ -46,7 +46,7 @@ public class GameEngine {
     }
 
     public void addPointsForCorrectAnswer(Listener.Client client) {
-        ranking.addPointToCliet(client, getNumberOfPointsForCurrentRound());
+        ranking.addPointToClient(client, getNumberOfPointsForCurrentRound());
     }
 
     public void resetGame() {

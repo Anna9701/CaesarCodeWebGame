@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+        <entry key="PortNumber">5900</entry>
+        <entry key="RoundsNumber">6</entry>
+</properties>

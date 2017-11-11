@@ -1,6 +1,8 @@
 package com.annawyrwal.caesarcodegame;
 
 import com.annawyrwal.caesarcodegame.serverside.Listener;
+import java.io.*;
+import java.util.Properties;
 
 /*****************
  * @Author Anna Wyrwał
@@ -13,26 +15,49 @@ public class Main {
     }
 
     private static void initializeServer(String[] args) {
-        if (args.length < 1) {
-            System.err.println("Usage: <port number> <number of rounds>");
+        Properties props = loadConfig();
+
+        String port = props.getProperty("PortNumber");
+        String rounds = props.getProperty("RoundsNumber");
+        int portNumber = 0;
+        int numberOfRounds = 0;
+
+        try {
+            portNumber = Integer.parseInt(port);
+            numberOfRounds = Integer.parseInt(rounds);
+        } catch (NumberFormatException ex) {
+            System.err.println("Cannot parse config values into integers. Fix config and try again.");
             System.exit(-1);
+        }
+
+        new Listener(portNumber, numberOfRounds).start();
+    }
+
+    private static Properties loadConfig() {
+        File configFile = new File("src/com/annawyrwal/caesarcodegame/conf.xml");
+
+        InputStream inputStream = null;
+        try {
+            inputStream = new FileInputStream(configFile);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Properties props = new Properties();
+
+        try {
+            props.loadFromXML(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         try {
-            int portNumber = Integer.parseInt(args[0]);
-            int numberOfRounds;
-            Listener listener;
-            if (args.length == 2) {
-                numberOfRounds = Integer.parseInt(args[1]);
-                listener = new Listener(portNumber, numberOfRounds);
-            } else
-                listener = new Listener(portNumber);
-
-            listener.start();
-        } catch (NumberFormatException ex) {
-            System.err.println("Usage: <port number> <number of rounds>");
-            System.exit(-1);
+            inputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
+        return props;
     }
+
+
 }

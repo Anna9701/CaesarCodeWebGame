@@ -43,15 +43,14 @@ public class Listener extends Thread {
     public static String getStartMenuMessage() {
         Enigma enigma = gameEngine.getEnigma();
 
-        String text = "Now is " + gameEngine.getCurrentRound() + " round from " + gameEngine.getNumberOfRounds() + " rounds.\n" +
+        return "Now is " + gameEngine.getCurrentRound() + " round from " + gameEngine.getNumberOfRounds() + " rounds.\n" +
                 "Please, remember, that text has no spaces \n" +
-                "Text to decrypt (Text is in polish language): \n" +
+                "Text to decrypt: \n" +
                 enigma.getCryptedText() + "\n" +
-                enigma.getDecryptedText() + enigma.getKey() + "\n\n" + /*************************************** Do wywalenia **********************************************************/
+                enigma.getDecryptedText() + "\n" + //enigma.getKey() + "\n\n" + /*************************************** Do wywalenia **********************************************************/
                 "1. Send answer \n" +
                 "2. View ranking \n" +
                 "0. Exit \n";
-        return text;
     }
 
     public void run() {
@@ -77,7 +76,14 @@ public class Listener extends Thread {
         }
     }
 
-     class Client extends  Thread {
+    private void sendToAllClientsExcept (String msg, Client except) {
+        for (Client client : clients) {
+            if (client != except)
+                client.sendMessage(msg);
+        }
+    }
+
+     class Client extends Thread {
         private Socket client;
         private PrintWriter out;
         private BufferedReader in;
@@ -106,13 +112,13 @@ public class Listener extends Thread {
 
         public boolean checkEnigma(String text) {
             if (gameEngine.getEnigma().isValid(text)) {
-                sendToAllClients(getClientName() + " found valid answer!");
-                sendToAllClients("Decrypted text was: " + gameEngine.getEnigma().getDecryptedText());
+                sendToAllClientsExcept(getClientName() + " found valid answer!", this);
+                sendToAllClientsExcept("Decrypted text was: " + gameEngine.getEnigma().getDecryptedText() + "\n", this);
                 gameEngine.addPointsForCorrectAnswer(this);
                 if(!gameEngine.nextRound()) {
                     endOfGame();
                 }
-                sendToAllClients(getStartMenuMessage());
+                sendToAllClientsExcept(getStartMenuMessage(), this);
                 return true;
             }
             return false;
